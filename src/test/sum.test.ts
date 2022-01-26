@@ -1,8 +1,11 @@
-import sum from './sum';
+import { createConnection, ConnectionOptions } from 'typeorm';
 
-describe('sum', () => {
-  it('should add two numbers', () => {
-    expect.assertions(1);
-    return expect(sum(10, 10)).toEqual(20);
-  });
-});
+export async function openDatabaseConnection() {
+    // await closeDataConnection();
+
+    const conn = await createConnection();
+    if(!conn.isConnected) {
+        throw new Error('Connection to database failed');
+    }
+    return conn;
+}
