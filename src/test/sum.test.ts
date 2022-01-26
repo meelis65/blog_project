@@ -8,4 +8,3 @@ export async function openDatabaseConnection() {
         throw new Error('Connection to database failed');
     }
     return conn;
-}
