@@ -15,7 +15,7 @@ import {
     @PrimaryGeneratedColumn('uuid')
     id!: string;
     @Column('varchar', { length: 150 })
-    firstName: string;
+    firstName!: string;
     @Column('varchar', { length: 150, nullable: true })
     middleName?: string;
     @Column('varchar', { length: 150 })
@@ -25,18 +25,18 @@ import {
     @Column('varchar', { length: 320, unique: true })
     email!: string;
     @Column({ default: () => 'CURRENT_TIMESTAMP' })
-    lastLogin: Date;
+    lastLogin!: Date;
     @Column('tinytext', { nullable: true })
     intro?: string;
     @Column('text', { nullable: true })
     profile?: string;
     @CreateDateColumn()
-    createdAt: Date;
+    createdAt!: Date;
     @UpdateDateColumn()
-    updatedAt: Date;
+    updatedAt!: Date;
   
     @OneToMany(() => Post, (post) => post.author)
-    posts: Post[];
+    posts?: Post[];
     // Eager loading lisab teise tabelist andmed alati juurde iga päringuga
     // @OneToMany(() => Post, (post) => post.author, { eager: true })
     // posts: Post[];
